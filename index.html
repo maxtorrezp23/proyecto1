@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Rincón Gourmet - Pedido Online</title>
+    
+    <link rel="stylesheet" href="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900">
+    
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">El Rincón Gourmet 🍽️</a>
+            <nav>
+                <a href="#menu">Menú</a>
+                <a href="#about">Nosotros</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+            <button class="cart-button" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i> Carrito (<span id="cart-count">0</span>)
+            </button>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>¡Tu Mesa Favorita, Ahora en Casa!</h1>
+            <p>Descubre nuestros platos de autor con ingredientes frescos y locales.</p>
+            <a href="#menu" class="btn-primary">Ver Menú Completo</a>
+        </div>
+    </section>
+
+    <section id="menu" class="container">
+        <h2>Nuestro Menú Exclusivo</h2>
+
+        <h3 class="category-title"><i class="fas fa-cheese"></i> Entradas</h3>
+        <div class="menu-grid">
+            
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Tabla de Quesos">
+                <h4>Tabla de Quesos Artesanales</h4>
+                <p>Selección de quesos madurados, frutas secas y reducción de balsámico.</p>
+                <div class="price-action">
+                    <span class="price">$12.50</span>
+                    <button class="btn-add" data-id="101" data-name="Tabla de Quesos" data-price="12.50" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Sopa del Día">
+                <h4>Sopa Crema del Día</h4>
+                <p>Preparada con vegetales de estación y un toque de aceite de oliva virgen.</p>
+                <div class="price-action">
+                    <span class="price">$7.00</span>
+                    <button class="btn-add" data-id="102" data-name="Sopa del Día" data-price="7.00" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Bruschettas">
+                <h4>Bruschettas de Tomate y Albahaca</h4>
+                <p>Pan tostado, tomate cherry, albahaca fresca y mozzarella de búfala.</p>
+                <div class="price-action">
+                    <span class="price">$8.50</span>
+                    <button class="btn-add" data-id="103" data-name="Bruschettas" data-price="8.50" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Ceviche Clásico">
+                <h4>Ceviche Clásico Peruano</h4>
+                <p>Pescado blanco marinado en limón, ají, cebolla roja y cilantro.</p>
+                <div class="price-action">
+                    <span class="price">$14.99</span>
+                    <button class="btn-add" data-id="104" data-name="Ceviche Clásico" data-price="14.99" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Croquetas de Jamón">
+                <h4>Croquetas de Jamón Ibérico</h4>
+                <p>Cremosas croquetas caseras, fritas a la perfección.</p>
+                <div class="price-action">
+                    <span class="price">$9.00</span>
+                    <button class="btn-add" data-id="105" data-name="Croquetas Ibéricas" data-price="9.00" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+<button class="btn-primary" style="width: 100%;" onclick="processOrder()">Proceder a Pagar</button>
+        <h3 class="category-title" style="margin-top: 50px;"><i class="fas fa-utensils"></i> Platos Fuertes (Carnes & Pescados)</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Lomo Fino">
+                <h4>Lomo con Salsa de Hongos</h4>
+                <p>El corte más suave, con nuestra salsa secreta de tres hongos. Acompañado de patatas rústicas.</p>
+                <div class="price-action">
+                    <span class="price">$18.99</span>
+                    <button class="btn-add" data-id="201" data-name="Lomo con Hongos" data-price="18.99" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Salmón Glaseado">
+                <h4>Salmón Glaseado Cítrico</h4>
+                <p>Salmón fresco con glaseado de miel y naranja. Servido con una cama de vegetales al vapor.</p>
+                <div class="price-action">
+                    <span class="price">$22.50</span>
+                    <button class="btn-add" data-id="202" data-name="Salmón Cítrico" data-price="22.50" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Pasta Artesanal">
+                <h4>Pasta Casera Ragu de Res</h4>
+                <p>Nuestra receta italiana tradicional. Pasta hecha a mano con una cocción lenta de carne de res y vino tinto.</p>
+                <div class="price-action">
+                    <span class="price">$15.75</span>
+                    <button class="btn-add" data-id="203" data-name="Pasta Ragu" data-price="15.75" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Cordero Asado">
+                <h4>Costillas de Cordero Asado</h4>
+                <p>Cordero marinado por 24h, lento asado con hierbas provenzales. Con puré cremoso de ajo.</p>
+                <div class="price-action">
+                    <span class="price">$24.99</span>
+                    <button class="btn-add" data-id="204" data-name="Costillas Cordero" data-price="24.99" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Risotto de Camarones">
+                <h4>Risotto de Camarones y Azafrán</h4>
+                <p>Arroz Carnaroli cremoso con camarones jumbo y el toque exótico del azafrán.</p>
+                <div class="price-action">
+                    <span class="price">$19.50</span>
+                    <button class="btn-add" data-id="205" data-name="Risotto Camarones" data-price="19.50" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Pollo Marsala">
+                <h4>Pollo Marsala Italiano</h4>
+                <p>Pechuga de pollo sellada con salsa de vino Marsala y champiñones frescos.</p>
+                <div class="price-action">
+                    <span class="price">$16.00</span>
+                    <button class="btn-add" data-id="206" data-name="Pollo Marsala" data-price="16.00" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Tacos de Pescado">
+                <h4>Tacos de Pescado Baja Style</h4>
+                <p>Pescado rebozado con crema de chipotle, col rallada y salsa pico de gallo.</p>
+                <div class="price-action">
+                    <span class="price">$14.00</span>
+                    <button class="btn-add" data-id="207" data-name="Tacos Pescado" data-price="14.00" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Canelones">
+                <h4>Canelones de Carne Gratinados</h4>
+                <p>Pasta rellena de ternera y cerdo, bañada en bechamel y queso parmesano gratinado.</p>
+                <div class="price-action">
+                    <span class="price">$16.50</span>
+                    <button class="btn-add" data-id="208" data-name="Canelones Gratinados" data-price="16.50" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="category-title" style="margin-top: 50px;"><i class="fas fa-leaf"></i> Opciones Vegetarianas</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Curry de Lentejas">
+                <h4>Curry de Lentejas Rojas</h4>
+                <p>Curry especiado con leche de coco, lentejas rojas, espinacas y arroz jazmín.</p>
+                <div class="price-action">
+                    <span class="price">$13.50</span>
+                    <button class="btn-add" data-id="301" data-name="Curry Lentejas" data-price="13.50" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Ensalada Quinoa">
+                <h4>Ensalada Mediterránea de Quinoa</h4>
+                <p>Quinoa, pepino, tomate, aceitunas kalamata y aderezo ligero de limón y menta.</p>
+                <div class="price-action">
+                    <span class="price">$11.50</span>
+                    <button class="btn-add" data-id="302" data-name="Ensalada Quinoa" data-price="11.50" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Lasagna Vegetal">
+                <h4>Lasagna de Vegetales Gratinada</h4>
+                <p>Láminas de pasta rellenas de calabacín, berenjena y ricota fresca.</p>
+                <div class="price-action">
+                    <span class="price">$14.50</span>
+                    <button class="btn-add" data-id="303" data-name="Lasagna Vegetal" data-price="14.50" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="category-title" style="margin-top: 50px;"><i class="fas fa-ice-cream"></i> Postres</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Tiramisú">
+                <h4>Tiramisú Clásico de la Casa</h4>
+                <p>El postre italiano por excelencia, con mascarpone cremoso y un toque de Amaretto.</p>
+                <div class="price-action">
+                    <span class="price">$6.50</span>
+                    <button class="btn-add" data-id="401" data-name="Tiramisú Clásico" data-price="6.50" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Cheesecake">
+                <h4>Cheesecake de Maracuyá</h4>
+                <p>Fresco y ligero, con una base crujiente y cubierta de la fruta de la pasión.</p>
+                <div class="price-action">
+                    <span class="price">$7.25</span>
+                    <button class="btn-add" data-id="402" data-name="Cheesecake Maracuyá" data-price="7.25" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Volcán de Chocolate">
+                <h4>Volcán de Chocolate Fundido</h4>
+                <p>Servido caliente con un centro de chocolate líquido, acompañado de helado de vainilla.</p>
+                <div class="price-action">
+                    <span class="price">$8.00</span>
+                    <button class="btn-add" data-id="403" data-name="Volcán Chocolate" data-price="8.00" onclick="addItem(this)">Añadir <i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="about" class="container about-section">
+        <h2>Nuestra Historia</h2>
+        <div class="about-content">
+            <img src="https://images.unsplash.com/photo-1760715751401-02487fcd24b5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&q=60&w=900" alt="Chef cocinando" class="about-image">
+            <div>
+                <p>Fundado en 2018, **El Rincón Gourmet** nació de la pasión por la cocina de autor con raíces locales. Nuestro chef utiliza técnicas modernas para realzar los sabores de los ingredientes frescos de temporada.</p>
+                <p>Creemos que la buena comida es una experiencia que debe ser compartida, ya sea en nuestro acogedor local o en la comodidad de tu hogar con nuestro servicio de pedido online.</p>
+                <a href="#menu" class="btn-primary" style="margin-top: 15px;">¡Hacer un Pedido!</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div>
+                <h3>Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Gastronómica, N° 123, Ciudad</p>
+                <p><i class="fas fa-phone"></i> +123 456 7890</p>
+                <p><i class="fas fa-envelope"></i> info@rincongourmet.com</p>
+            </div>
+            <div>
+                <h3>Horarios</h3>
+                <p>Lunes a Jueves: 12:00 - 22:00</p>
+                <p>Viernes y Sábado: 12:00 - 23:30</p>
+                <p>Domingo: Cerrado</p>
+            </div>
+            <div>
+                <h3>Síguenos</h3>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2024 El Rincón Gourmet. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+            <h3><i class="fas fa-shopping-basket"></i> Tu Carrito</h3>
+            <div id="cart-items-list">
+                <p class="empty-cart">El carrito está vacío. ¡Añade algo delicioso!</p>
+            </div>
+            <div class="cart-summary">
+                <p>Subtotal: <span id="cart-subtotal">$0.00</span></p>
+                <p>Impuestos (10%): <span id="cart-tax">$0.00</span></p>
+                <h4>Total Final: <span id="cart-total">$0.00</span></h4>
+            </div>
+            <button class="btn-primary" style="width: 100%;" onclick="alert('¡Procesando pedido! (Simulación)'); toggleCart();">Proceder a Pagar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
